@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import React from 'react'
 
 const Header = ({ title }) => {
   return (
@@ -10,10 +10,6 @@ const Header = ({ title }) => {
 
 Header.defaultProps = {
   title: "Made with React and Tiptap",
-};
-
-Header.propTypes = {
-  title: PropTypes.string,
 };
 
 export default Header;

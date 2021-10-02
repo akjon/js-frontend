@@ -8,8 +8,4 @@ const Header = ({ title }) => {
   );
 };
 
-Header.defaultProps = {
-  title: "Made with React and Tiptap",
-};
-
 export default Header;

@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import Quill from 'quill'
 import { useParams } from 'react-router-dom'
 import 'quill/dist/quill.snow.css'
+import EditorMenu from './EditorMenu'
 
 let toolbarOptions = [
   ['bold', 'italic', 'underline', 'strike'],
@@ -9,24 +10,18 @@ let toolbarOptions = [
   [{ 'script': 'sub' }, { 'script': 'super' }],
   [{ 'direction': 'rtl' }],
   [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
   [{ 'color': [] }, { 'background': [] }],
   [{ 'font': [] }],
   [{ 'align': [] }],
 ];
 
 export default function Editor() {
-  const Menu = () => (
-    <div className="menu">
-      <button>New</button>
-      <button>Save</button>
-      <button>Load</button>
-    </div>
-  )
-
   const { id: documentId } = useParams()
+  const [documentTitle, setDocumentTitle] = useState()
   const [quill, setQuill] = useState()
 
+  // Using a wrapper function to make sure no additional
+  // quill components render when developing
   const wrapperRef = useCallback(wrapper => {
     if (wrapper == null) return
 
@@ -40,15 +35,16 @@ export default function Editor() {
     q.enable()
     setQuill(q)
     q.on('selection-change', function(range) {
-      console.log('selection-change', range)
+      // console.log('selection-change', range)
     });
     q.on('text-change', function(delta, source) {
-      console.log('text-change', delta, source)
+      // console.log('text-change', delta, source)
+      // console.log(documentId)
     });
   }, [])
   return (
     <>
-      <Menu />
+      <EditorMenu />
       <div className="app" ref={wrapperRef}>
       </div>
     </>

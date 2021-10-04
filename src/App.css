@@ -38,11 +38,7 @@ main {
 .ql-toolbar.ql-snow {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  background: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.5)
-  );
+  background: rgba(255, 255, 255, 0.9);
   width: 21cm;
   margin: 0 auto;
   display: flex;
@@ -82,7 +78,6 @@ main {
   position: sticky;
   display: flex;
   padding: 0.75rem 5rem;
-  /* justify-content: space-evenly; */
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
 }
 
@@ -91,21 +86,122 @@ main {
   margin: 0 3rem ;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
-  font-size: 200%;
+  font-size: 150%;
   font-weight: 400;
   border-radius: 2rem;
   border: none;
   color: #3B4252;
   background: linear-gradient(to left bottom, #B48EAD, #D8DEE9);
- width: 10rem;
+  width: 12rem;
   box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+  outline: 0;
  }
+
+.menu button:focus {
+  outline: 4px solid #3B4252;
+}
 
 .menu button:hover,
 .menu button:active {
   transition: ease-in-out 0.2s;
+  outline: 0;
   opacity: 100%;
   box-shadow: 0.8px 1.6px 1.6px hsl(0deg 0% 0% / 0.48);
   transform: scale(0.98);
 }
 
+.dialog {
+  font-family: "Roboto", sans-serif;
+  color: #3B4252;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 1rem;
+  padding: 2rem;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.5)
+  );
+  z-index: 2;
+}
+
+.dialog p {
+  padding: 20px 0;
+}
+
+.dialog button:focus {
+  outline: 2px solid #3B4252;
+}
+
+.dialog-btn-close {
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background:rgba(255, 255, 255, 0.0);
+  border: none;
+  font-size: 125%;
+}
+
+.dialog-submit,
+.dialog-cancel {
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.dialog-submit {
+  float: left;
+}
+
+.dialog-cancel {
+  float: right;
+}
+
+.dialog input,
+.load-option {
+  padding:  0.5rem;
+  margin: 1rem 0;
+  display: flex;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.dialog input:focus,
+.load-option:focus {
+outline: 2px solid #3B4252;
+}
+
+.dialog h2 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  margin: 1rem 0;
+  color: #3B4252;
+}
+
+.overlay {
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}

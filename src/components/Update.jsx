@@ -4,7 +4,7 @@ import useFetch from '../useFetch'
 const Update = ({ closeDialog, quill }) => {
   const [currentId, setCurrentId] = useState(null)
   const updatedData = { data: quill.getContents() }
-  const url = 'http://localhost:1337/editor/'
+  const url = 'https://jsramverk-editor-joka20.azurewebsites.net/editor/'
   const { data, isPending, error } = useFetch(url)
 
   const handleSubmit = (e) => {

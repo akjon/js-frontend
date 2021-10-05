@@ -9,7 +9,7 @@ function App() {
     <main>
       <Router>
         <Switch>
-          <Route path="/editor">
+          <Route path="/">
             <Editor />
           </Route>
         </Switch>

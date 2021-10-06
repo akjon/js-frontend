@@ -1,11 +1,12 @@
 {
   "name": "jsramverk-frontend",
   "version": "2.0.0",
+  "author": "Johnny Karlsson",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "deploy": "vite build && rsync -av --delete -e 'ssh -i /home/jka/.ssh/dbwebb.pub' build/ joka20@ssh.student.bth.se:www/editor"
+    "deploy": "vite build && rsync -av --delete -e 'ssh -i /home/jka/.ssh/dbwebb.pub' dist/ joka20@ssh.student.bth.se:www/editor"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

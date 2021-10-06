@@ -1,26 +1,40 @@
-import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
-import Create from './Create'
-import Update from './Update'
-import Read from './Read'
+import Create from './Create';
+import Update from './Update';
+import Read from './Read';
 
-const closeIcon = <FontAwesomeIcon icon={faTimes} />
+const closeIcon = <FontAwesomeIcon icon={faTimes} />;
 
 Modal.setAppElement('#root');
 const EditorMenu = ({ documentId, quill }) => {
   const [showDialog, setShowDialog] = useState(false);
-  const [dialogContent, setDialogContent] = useState('')
+  const [dialogContent, setDialogContent] = useState('');
 
-  const createDialog = <Create documentId={documentId} quill={quill} closeDialog={() => toggler()} />
-  const updateDialog = <Update documentId={documentId} quill={quill} closeDialog={() => toggler()} />
-  const readDialog = <Read documentId={documentId} quill={quill} closeDialog={() => toggler()} />
+  const createDialog = (
+    <Create
+      documentId={documentId}
+      quill={quill}
+      closeDialog={() => toggler()}
+    />
+  );
+  const updateDialog = (
+    <Update
+      documentId={documentId}
+      quill={quill}
+      closeDialog={() => toggler()}
+    />
+  );
+  const readDialog = (
+    <Read documentId={documentId} quill={quill} closeDialog={() => toggler()} />
+  );
 
   const toggler = (content) => {
-    setShowDialog((prev) => !prev)
-    setDialogContent(content)
-  }
+    setShowDialog((prev) => !prev);
+    setDialogContent(content);
+  };
 
   return (
     <div className="menu">
@@ -35,15 +49,12 @@ const EditorMenu = ({ documentId, quill }) => {
         onRequestClose={() => toggler()}
       >
         {dialogContent}
-        <button
-          onClick={() => toggler()}
-          className="dialog-btn-close"
-        >{closeIcon}
+        <button onClick={() => toggler()} className="dialog-btn-close">
+          {closeIcon}
         </button>
       </Modal>
     </div>
+  );
+};
 
-  )
-}
-
-export default EditorMenu
+export default EditorMenu;

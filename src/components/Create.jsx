@@ -4,7 +4,9 @@ import { v4 as uuidV4 } from 'uuid';
 const Create = ({ closeDialog, quill }) => {
   const [title, setTitle] = useState('');
   const newDocument = { _id: uuidV4(), name: title, data: quill.getContents() };
-  const url = 'https://jsramverk-editor-joka20.azurewebsites.net/editor/';
+  // const url = 'https://jsramverk-editor-joka20.azurewebsites.net/editor/';
+  // const url = 'http://128.199.38.13:1337/editor/';
+  const url = 'http://localhost:1337/editor/';
 
   const handleSubmit = (e) => {
     e.preventDefault();

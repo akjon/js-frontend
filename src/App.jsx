@@ -5,15 +5,13 @@ import './App.css';
 
 function App() {
   return (
-    <main>
-      <Router>
-        <Switch>
-          <Route path="/">
-            <Editor />
-          </Route>
-        </Switch>
-      </Router>
-    </main>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <Editor />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

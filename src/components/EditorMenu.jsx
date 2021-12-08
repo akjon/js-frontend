@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faPlusCircle, faCloudUploadAlt, faCloudDownloadAlt } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import Create from './Create';
 import Update from './Update';
 import Read from './Read';
 
 const closeIcon = <FontAwesomeIcon icon={faTimes} />;
+const createIcon = <FontAwesomeIcon icon={faPlusCircle} />;
+const readIcon = <FontAwesomeIcon icon={faCloudDownloadAlt} />;
+const updateIcon = <FontAwesomeIcon icon={faCloudUploadAlt} />;
 
 Modal.setAppElement('#root');
 const EditorMenu = ({ documentId, quill }) => {
@@ -37,10 +40,10 @@ const EditorMenu = ({ documentId, quill }) => {
   };
 
   return (
-    <div className="menu">
-      <button onClick={() => toggler(createDialog)}>Create</button>
-      <button onClick={() => toggler(readDialog)}>Read</button>
-      <button onClick={() => toggler(updateDialog)}>Update</button>
+    <>
+      <button className="ql-picker" onClick={() => toggler(createDialog)}>{createIcon}</button>
+      <button className="ql-picker" onClick={() => toggler(readDialog)}>{readIcon}</button>
+      <button className="ql-picker" onClick={() => toggler(updateDialog)}>{updateIcon}</button>
 
       <Modal
         className="dialog"
@@ -53,7 +56,7 @@ const EditorMenu = ({ documentId, quill }) => {
           {closeIcon}
         </button>
       </Modal>
-    </div>
+    </>
   );
 };
 

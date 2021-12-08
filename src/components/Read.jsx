@@ -3,7 +3,9 @@ import useFetch from '../useFetch';
 
 const Read = ({ closeDialog, quill }) => {
   const [currentId, setCurrentId] = useState(null);
-  const url = 'https://jsramverk-editor-joka20.azurewebsites.net/editor/';
+  // const url = 'https://jsramverk-editor-joka20.azurewebsites.net/editor/';
+  // const url = 'http://128.199.38.13:1337/editor/';
+  const url = 'http://localhost:1337/editor/';
   const { data, isPending, error } = useFetch(url);
 
   const handleSubmit = (e) => {
